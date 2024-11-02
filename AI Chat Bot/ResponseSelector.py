@@ -1,3 +1,14 @@
+# AI model found at:
+# sentence-transformers/all-MiniLM-L6-v2 · Hugging Face. (n.d.). 
+# Huggingface.co. 
+# https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2
+
+# Sentence_transformers code adapted from:
+# Quickstart — Sentence Transformers documentation. (2024). 
+# Sbert.net. 
+# https://sbert.net/docs/quickstart.html
+
+
 from sentence_transformers import SentenceTransformer, util
 import torch
 import os
