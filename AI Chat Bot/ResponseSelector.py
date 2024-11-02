@@ -15,12 +15,15 @@ import os
 import tkinter as tk
 from tkinter import scrolledtext
 
+# Class to select and return a response based on an input question
 class ResponseSelector:
+    # Loads the AI model on initialisation
     def __init__(self):
         self.Model = SentenceTransformer('all-MiniLM-L6-v2')
         self.Responses = []
         self.ResponseEmbeddings = None
 
+    # Loads the list of pre-generated responses from a specified file
     def LoadResponses(self, FileName):
         self.Responses = []
         try:
@@ -38,6 +41,8 @@ class ResponseSelector:
         except Exception as e:
             print(f"An error occurred while loading responses: {e}")
 
+    # Takes an input question, submits it to the model to return a list of scores based on semantic similarity (i.e. how relevant each answer is to the question). 
+    # Returns the answer with the highest score, or "No responses loaded" if the answer list has not yet been retrieved. 
     def GetResponse(self, UserQuery):
         if not self.Responses:
             return "No responses loaded."
@@ -47,7 +52,7 @@ class ResponseSelector:
         TopResult = torch.argmax(CosineScores).item()
         return self.Responses[TopResult]
 
-
+# Initialises the GUI interface
 def create_tkinter_interface():
     selector = ResponseSelector()
     selector.LoadResponses("Responses.txt")
