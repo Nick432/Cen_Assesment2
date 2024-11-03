@@ -71,7 +71,7 @@ def create_tkinter_interface():
 
     root = tk.Tk()
     root.title("Response Selector Chat")
-    root.geometry("700x500")
+    root.geometry("700x600")
     root.configure(bg="#1c1c1c")
 
     chat_display = scrolledtext.ScrolledText(root, wrap=tk.WORD, height=25, width=70, state=tk.DISABLED, bg="#2b2b2b", fg="white", font=("Arial", 12))
